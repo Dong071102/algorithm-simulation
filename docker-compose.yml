@@ -1,0 +1,24 @@
+# =============================================================================
+# Portainer Stack / Docker Compose — Algorithm Simulation
+# =============================================================================
+# Dán trực tiếp vào Portainer → Stacks → Add stack → Deploy the stack.
+# (Đổi port ngoài bằng biến môi trường APP_PORT nếu cần, mặc định 8080.)
+# =============================================================================
+
+services:
+  algorithm-simulation:
+    image: ghcr.io/dong071102/algorithm-simulation:latest
+    # build: .
+    container_name: algorithm-simulation
+    restart: unless-stopped
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    environment:
+      - HOST=0.0.0.0
+      - PORT=8080
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://127.0.0.1:8080/api/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s

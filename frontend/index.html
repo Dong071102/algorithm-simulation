@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Algorithm Simulation — Mô phỏng & Phân tích Thuật toán Max-Flow</title>
+    <meta
+      name="description"
+      content="Nền tảng trực quan hóa & phân tích thuật toán tương tác: Ford-Fulkerson, Edmonds-Karp, Capacity Scaling, Dinic, MPM, Push-Relabel, Pseudoflow, Boykov-Kolmogorov, IBFS và Đồ thị phẳng."
+    />
+    <meta name="theme-color" content="#f4ebe0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      // Áp dụng theme đã lưu trước first paint để không bị nháy sáng
+      try {
+        if (localStorage.getItem('algosim:theme') === 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+          var m = document.querySelector('meta[name="theme-color"]');
+          if (m) m.content = '#211e1a';
+        }
+      } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="./styles/main.css" />
+  </head>
+  <body>
+    <div id="app" class="window"></div>
+    <script type="module" src="./src/main.js"></script>
+  </body>
+</html>
